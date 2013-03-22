@@ -183,6 +183,18 @@
   <ItemGroup>
     <Content Include="Views\Home\CacheVaryBy.cshtml" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\ActionToCachedRedirect.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\CachedActionToBasicRedirect.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\CachedChildByPolicy.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\CachedActionWithChildCachedByPolicy.cshtml" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

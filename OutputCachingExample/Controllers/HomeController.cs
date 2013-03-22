@@ -79,14 +79,27 @@ namespace OutputCachingExample.Controllers
             return View(DateTime.Now);
         }
 
+        public ViewResult CachedActionWithChildCachedByPolicy()
+        {
+            return View(DateTime.Now);
+        }
+
         [OutputCache(CacheProfile = "Basic")]
         public ViewResult CachedActionWithPartial()
         {
             return View(DateTime.Now);
         }
 
-        [OutputCache(CacheProfile = "Basic")]
+        [OutputCache(Duration=10)]
+        [ChildActionOnly]
         public ViewResult CachedChildAction()
+        {
+            return View(DateTime.Now);
+        }
+
+        [OutputCache(CacheProfile="Basic")]
+        [ChildActionOnly]
+        public ViewResult CachedChildByPolicy()
         {
             return View(DateTime.Now);
         }
@@ -104,6 +117,17 @@ namespace OutputCachingExample.Controllers
         public ViewResult CachedActionWithBasicChild()
         {
             return View(DateTime.Now);
+        }
+
+        public ActionResult ActionToCachedRedirect()
+        {
+            return RedirectToAction("CachedAction");
+        }
+
+        [OutputCache(CacheProfile = "Basic")]
+        public ActionResult CachedActionToBasicRedirect()
+        {
+            return RedirectToAction("BasicAction");
         }
 
         #endregion
@@ -139,5 +163,6 @@ namespace OutputCachingExample.Controllers
         }
 
         #endregion
+
     }
 }

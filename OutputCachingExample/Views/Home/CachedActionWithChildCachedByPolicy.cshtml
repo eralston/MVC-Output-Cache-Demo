@@ -1,0 +1,14 @@
+@{
+    ViewBag.Title = "CachedActionWithChildCachedByPolicy";
+}
+
+@*This YSODs for some strange reason*@
+
+
+<div class="row">
+    <div class="span10 offset2">
+        <h2>Cached Action With Cached Child</h2>
+        <span class="current-time">Razor: @Html.Raw(DateTime.Now)</span><span class="current-time">Code: @Model.ToString()</span>
+    </div>
+</div>
+@{ Html.RenderAction("CachedChildByPolicy"); }
