@@ -18,6 +18,27 @@
         .current-time {
             display: block;
         }
+
+        body {
+            background-color: #F2FAFF;
+        }
+
+        .row {
+            padding-top: 1em;
+            padding-bottom: 1em;
+        }
+
+        .row:nth-child(-n + 4)  {
+            background-color: #D8F0FF;
+        }
+
+        .row:nth-child(5) {
+            background-color: #BFE6FF;
+        }
+
+        .row:nth-child(6) {
+            background-color: #A5DCFF;
+        }
     </style>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 </head>
@@ -32,8 +53,8 @@
         </div>
         <div class="row">
             <div class="span12">
-                <button class="btn btn-primary refresh-button">Refresh</button>
-                <button class="btn btn-primary back-button">Back</button>
+                <button class="btn refresh-button">Refresh</button>
+                <button class="btn back-button">Back</button>
             </div>
         </div>
         <div class="row">

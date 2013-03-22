@@ -21,7 +21,7 @@ namespace OutputCachingExample.Controllers
 #if DEBUG
             return true;
 #else
-return false;
+            return false;
 #endif
         }
     }
@@ -67,26 +67,25 @@ return false;
 
         #region Cached Actions
 
-        [OutputCache(Duration = 10)]
+        [OutputCache(CacheProfile = "Basic")]
         public ViewResult CachedAction()
         {
             return View(DateTime.Now);
         }
 
-        [OutputCache(Duration = 10)]
+        [OutputCache(CacheProfile = "Basic")]
         public ViewResult CachedActionWithCachedChild()
         {
             return View(DateTime.Now);
         }
 
-        [OutputCache(Duration = 10)]
+        [OutputCache(CacheProfile = "Basic")]
         public ViewResult CachedActionWithPartial()
         {
             return View(DateTime.Now);
         }
 
-        [OutputCache(Duration = 10)]
-        [ChildActionOnly]
+        [OutputCache(CacheProfile = "Basic")]
         public ViewResult CachedChildAction()
         {
             return View(DateTime.Now);
@@ -101,7 +100,7 @@ return false;
             return View(DateTime.Now);
         }
 
-        [OutputCache(Duration = 10)]
+        [OutputCache(CacheProfile = "Basic")]
         public ViewResult CachedActionWithBasicChild()
         {
             return View(DateTime.Now);
