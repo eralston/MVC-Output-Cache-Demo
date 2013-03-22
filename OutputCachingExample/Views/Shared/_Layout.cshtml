@@ -1,0 +1,58 @@
+﻿@{
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>ASP.Net MVC OutputchCache Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <!--[if IE]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+    <style>
+        .current-time {
+            display: block;
+        }
+    </style>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+
+<body id="home">
+    <div class="container">
+        <div class="row">
+            <div class="span12">
+                <h1>OutputCache Demo</h1>
+                <h4>Try different orders for each test to see different outputs</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="span12">
+                <button class="btn btn-primary refresh-button">Refresh</button>
+                <button class="btn btn-primary back-button">Back</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="span12">
+                <h1>Layout</h1>
+                <span class="current-time">Razor: @Html.Raw(DateTime.Now)</span>
+                <span class="current-time">Code: @Model.ToString()</span>
+            </div>
+        </div>
+
+        @RenderBody()
+    </div>
+
+    <script type="text/javascript">
+        // Provide back logic for back and reload functionality
+        $(function () {
+            $(".refresh-button").click(function () { location.reload(true); });
+            $(".back-button").click(function () { history.back(); });
+        });
+    </script>
+</body>
+</html>
+
+

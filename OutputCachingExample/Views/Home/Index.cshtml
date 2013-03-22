@@ -1,0 +1,22 @@
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Basic Actions</h2>
+<ul>
+    <li>@Html.ActionLink("Basic Action", "BasicAction")</li>
+    <li>@Html.ActionLink("Basic Action With Basic Child", "BasicActionWithBasicChild")</li>
+    <li>@Html.ActionLink("Basic Action With Partial", "BasicActionWithPartial")</li>
+</ul>
+<h2>Cached Actions</h2>
+<ul>
+    <li>@Html.ActionLink("Cached Action", "CachedAction")</li>
+    <li>@Html.ActionLink("Cached Action With Cached Child", "CachedActionWithCachedChild")</li>
+    <li>@Html.ActionLink("Cached Action With Partial", "CachedActionWIthPartial")</li>
+</ul>
+
+<h2>Mixed Actions</h2>
+<ul>
+    <li>@Html.ActionLink("Basic Action With Cached Child", "BasicActionWithCachedChild")</li>
+    <li>@Html.ActionLink("Cached Action With Basic Child", "CachedActionWithBasicChild")</li>
+</ul>
