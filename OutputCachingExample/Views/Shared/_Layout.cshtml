@@ -1,4 +1,6 @@
-﻿@{
+﻿@using OutputCachingExample.Controllers
+
+@{
 }
 
 <!DOCTYPE html>
@@ -24,7 +26,7 @@
     <div class="container">
         <div class="row">
             <div class="span12">
-                <h1>OutputCache Demo</h1>
+                <h1>@Html.ActionLink("OutputCache Demo", "Index")</h1>
                 <h4>Try different orders for each test to see different outputs</h4>
             </div>
         </div>
@@ -39,6 +41,20 @@
                 <h1>Layout</h1>
                 <span class="current-time">Razor: @Html.Raw(DateTime.Now)</span>
                 <span class="current-time">Code: @Model.ToString()</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="span12">
+                <h4>Current Build Mode</h4>
+                @if(@Html.IsDebug())
+                {
+                    <span>Debug</span>
+                }
+                else
+                {
+                    <span>Release</span>
+                }
+
             </div>
         </div>
 

@@ -1,0 +1,29 @@
+@{
+    ViewBag.Title = "CacheNoVaryBy";
+}
+
+<div class="row">
+    <div class="span10 offset2">
+        <h2>Cached Without Vary By</h2>
+        <span class="current-time">Razor: @Html.Raw(DateTime.Now)</span>
+        <span class="current-time">Code: @Model.Now.ToString()</span>
+        <span class="current-time">Argument: "@Model.Argument"</span>
+
+    </div>
+</div>
+<div class="row">
+    <div class="span10 offset2">
+        <input id="url" type="hidden" value="@Url.Action("CacheNoVaryBy", new { id = "" })" />
+        <form class="form-search">
+            <input id="argument" type="text" class="input-medium search-query" placeholder="ID Argument">
+            <button type="button" class="btn load-with-arg-button">Search</button>
+        </form>
+    </div>
+</div>
+<script type="text/javascript">
+    $(".load-with-arg-button").click(function () {
+        var arg = $("#argument").val();
+        var url = $("#url").val();
+        window.location = url + "/" + arg;
+    });
+</script>

@@ -3,12 +3,14 @@
 }
 
 <h2>Basic Actions</h2>
+<h4>These are basic actions that do not have an OutputCache attribute on them</h4>
 <ul>
     <li>@Html.ActionLink("Basic Action", "BasicAction")</li>
     <li>@Html.ActionLink("Basic Action With Basic Child", "BasicActionWithBasicChild")</li>
     <li>@Html.ActionLink("Basic Action With Partial", "BasicActionWithPartial")</li>
 </ul>
 <h2>Cached Actions</h2>
+<h4>All of these actions have a 10 second cache on them, demonstrating how children and partials are also cached</h4>
 <ul>
     <li>@Html.ActionLink("Cached Action", "CachedAction")</li>
     <li>@Html.ActionLink("Cached Action With Cached Child", "CachedActionWithCachedChild")</li>
@@ -16,7 +18,15 @@
 </ul>
 
 <h2>Mixed Actions</h2>
+<h4>This mixes the nesting of OutputCache to prove things are only cached if the root action is output cached</h4>
 <ul>
     <li>@Html.ActionLink("Basic Action With Cached Child", "BasicActionWithCachedChild")</li>
     <li>@Html.ActionLink("Cached Action With Basic Child", "CachedActionWithBasicChild")</li>
+</ul>
+
+<h2>Vary By Actions</h2>
+<h4>The "Vary By" argument to the OutputCache allows varying </h4>
+<ul>
+    <li>@Html.ActionLink("Cached Action Without Vary By", "CacheNoVaryBy")</li>
+    <li>@Html.ActionLink("Cached Action With Vary By", "CacheVaryBy")</li>
 </ul>

@@ -7,6 +7,26 @@ using System.Web.Mvc;
 namespace OutputCachingExample.Controllers
 {
     /// <summary>
+    /// Class for holding extensions for the HtmlHelper function
+    /// </summary>
+    public static class HtmlHelperExtensions
+    {
+        /// <summary>
+        /// Returns true if the build is DEBUG; otherwise, returns false
+        /// </summary>
+        /// <param name="htmlHelper"></param>
+        /// <returns></returns>
+        public static bool IsDebug(this HtmlHelper htmlHelper)
+        {
+#if DEBUG
+            return true;
+#else
+return false;
+#endif
+        }
+    }
+
+    /// <summary>
     /// This single control holds all actions and child actions for the demo, each with only default implementation
     /// </summary>
     public class HomeController : Controller
@@ -81,7 +101,7 @@ namespace OutputCachingExample.Controllers
             return View(DateTime.Now);
         }
 
-        [OutputCache(Duration=10)]
+        [OutputCache(Duration = 10)]
         public ViewResult CachedActionWithBasicChild()
         {
             return View(DateTime.Now);
@@ -89,6 +109,36 @@ namespace OutputCachingExample.Controllers
 
         #endregion
 
+        #region Vary By
 
+        public class MockupModel
+        {
+            public DateTime Now = DateTime.Now;
+            public string Argument;
+
+            public MockupModel(string arg)
+            {
+                Argument = arg;
+            }
+
+            public override string ToString()
+            {
+                return Now.ToString();
+            }
+        }
+
+        [OutputCache(Duration = 10, VaryByParam = "None")]
+        public ViewResult CacheNoVaryBy(string id)
+        {
+            return View(new MockupModel(id));
+        }
+
+        [OutputCache(Duration = 10, VaryByParam = "id")]
+        public ViewResult CacheVaryBy(string id)
+        {
+            return View(new MockupModel(id));
+        }
+
+        #endregion
     }
 }
