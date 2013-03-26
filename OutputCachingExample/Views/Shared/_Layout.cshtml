@@ -64,20 +64,6 @@
                 <span class="current-time">Code: @Model.ToString()</span>
             </div>
         </div>
-        <div class="row">
-            <div class="span12">
-                <h4>Current Build Mode</h4>
-                @if(@Html.IsDebug())
-                {
-                    <span>Debug</span>
-                }
-                else
-                {
-                    <span>Release</span>
-                }
-
-            </div>
-        </div>
 
         @RenderBody()
     </div>

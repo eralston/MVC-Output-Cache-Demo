@@ -7,26 +7,6 @@ using System.Web.Mvc;
 namespace OutputCachingExample.Controllers
 {
     /// <summary>
-    /// Class for holding extensions for the HtmlHelper function
-    /// </summary>
-    public static class HtmlHelperExtensions
-    {
-        /// <summary>
-        /// Returns true if the build is DEBUG; otherwise, returns false
-        /// </summary>
-        /// <param name="htmlHelper"></param>
-        /// <returns></returns>
-        public static bool IsDebug(this HtmlHelper htmlHelper)
-        {
-#if DEBUG
-            return true;
-#else
-            return false;
-#endif
-        }
-    }
-
-    /// <summary>
     /// This single control holds all actions and child actions for the demo, each with only default implementation
     /// </summary>
     public class HomeController : Controller
